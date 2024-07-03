@@ -1,0 +1,23 @@
+<!-- myapp/templates/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extracted Text</title>
+    <script>
+        function copyText() {
+            var text = document.getElementById("extractedText").innerText;
+            navigator.clipboard.writeText(text).then(function() {
+                alert("Copied to clipboard!");
+            }, function(err) {
+                alert("Failed to copy text: ", err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Extracted Text</h1>
+    <p id="extractedText">{{ text }}</p>
+    <button onclick="copyText()">Copy Text</button>
+    <p>Language: {{ language }}</p>
+</body>
+</html>
